@@ -25,6 +25,8 @@ from sklearn.metrics import (accuracy_score, balanced_accuracy_score, precision_
 
 RAIZ = Path(__file__).resolve().parent.parent          # nossa_replica/
 ORIGINAL = RAIZ.parent / 'projeto_original'            # código e dados dos autores
+if not (ORIGINAL / 'code' / 'Evolution.py').exists():
+    raise FileNotFoundError(f'{ORIGINAL} não encontrado. Rode antes, a partir de nossa_replica/:  python setup_original.py')
 sys.path.insert(0, str(ORIGINAL / 'code'))
 sys.path.insert(0, str(RAIZ / 'melhoria'))
 from Dataset import Dataset            # noqa: E402

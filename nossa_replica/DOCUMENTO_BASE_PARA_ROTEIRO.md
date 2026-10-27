@@ -106,7 +106,8 @@ Na seção 7 (*Limitations*), os autores escrevem: *"We have never considered th
 ### 2.3 Estrutura de pastas
 ```
 Fast-Genetic-Algorithm-For-Feature-Selection-main/
-├── projeto_original/        ← o projeto dos AUTORES (só 3 correções de compatibilidade)
+├── projeto_original/        ← o projeto dos AUTORES (3 correções de compatibilidade); NÃO está no GitHub:
+│                              é criado por `python nossa_replica/setup_original.py` a partir do repositório oficial
 │   ├── code/                Dataset.py, Evolution.py, Example.ipynb
 │   ├── data/census-income.data
 │   └── results/results.csv

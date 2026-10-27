@@ -5,7 +5,8 @@ Miniprojeto de IA Avançada (UNICAP). Artigo: Altarabichi et al., *Expert System
 ## Estrutura
 
 ```
-projeto_original/                 # o projeto DOS AUTORES (só 3 correções de compatibilidade)
+projeto_original/                 # o projeto DOS AUTORES — NÃO versionado aqui; criado por `python setup_original.py`
+                                  # (3 correções de compatibilidade aplicadas sobre o código oficial)
 ├── code/                         Dataset.py, Evolution.py, Example.ipynb
 ├── data/census-income.data
 └── results/results.csv
@@ -23,6 +24,7 @@ nossa_replica/                    # o NOSSO trabalho
 
 **Local** (Python 3.10+), a partir da pasta `nossa_replica/`:
 ```bash
+python setup_original.py          # 1ª vez: baixa o código/dados oficiais (commit 6ac5a7e) e aplica as 3 correções
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt   # ou: pip install deap pyswarms scikit-learn pandas numpy scipy matplotlib seaborn imbalanced-learn joblib jupyter
 jupyter lab projeto_replica_e_melhoria.ipynb
@@ -30,7 +32,7 @@ jupyter lab projeto_replica_e_melhoria.ipynb
 **Modo rápido (testar o pipeline):** `N_RUNS=1 jupyter lab ...` (ou `export N_RUNS=1`). Variáveis opcionais: `N_JOBS`, `N_RUNS_CHC`, `RODAR_M3=0/1`, `RODAR_ABLACOES=0/1` (M2b, M3b, M4), `RODAR_EXTRA=0/1` (sem coluna 24), `EXECUTAR=0` (só lê o que já está em `results/runs/`), `EXECUTAR_TRANSF=0/1`.
 Execução sem abrir o Jupyter: `jupyter nbconvert --to notebook --execute --inplace projeto_replica_e_melhoria.ipynb`.
 
-**Colab:** envie a pasta inteira (as duas pastas, `projeto_original` e `nossa_replica`) para o Drive, monte o Drive, `%cd` para `nossa_replica` e rode `!pip install deap pyswarms imbalanced-learn`. O Colab gratuito tem poucos núcleos: reduza `N_JOBS`/`N_RUNS`.
+**Colab:** envie a pasta `nossa_replica` para o Drive, monte o Drive, `%cd` para ela e rode `!python setup_original.py` e `!pip install deap pyswarms imbalanced-learn`. O Colab gratuito tem poucos núcleos: reduza `N_JOBS`/`N_RUNS`.
 
 Sementes `0..N_RUNS-1`; `OMP_NUM_THREADS=1` é definido automaticamente; cada execução é salva ao terminar — se o kernel cair, reexecute e só o que falta é refeito. Para refazer do zero, apague `results/runs/`.
 
